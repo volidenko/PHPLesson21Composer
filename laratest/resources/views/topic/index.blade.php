@@ -4,11 +4,11 @@
     <div class="col-2 offset-1">
         <ul style="list-style-type: none">
             @foreach ($topics as $topic)
-                <li> <a href="{{url("topic/". $topic->id)}}" class="badge badge-light">{{$topic->topicname}}</li>
+                <li> <a href="{{url("topic/". $topic->id)}}" class="badge badge-light">{{$topic->topicname}}</a></li>
             @endforeach
         </ul>
     </div>
-    <div class="col-9">
+    <div class="col-9 float-right">
         @if ($id!=0)
             @foreach ($blocks as $block)
                 <div class="row">

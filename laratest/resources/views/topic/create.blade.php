@@ -9,12 +9,16 @@
 @if (count($errors)>0)
 <div class="alert alert-danger">
 <ul>
-    @foreach ($errors->all as $e)
+    @foreach ($errors->all() as $e)
         <li>{{$e}}</li>
     @endforeach
 </ul>
 </div>
-
+@endif
+@if (session("message"))
+    <div class="alert alert-info">
+        {{ session("message")}}
+    </div>
 @endif
 <div class="row">
     {!!Form::model($topic, array("action"=>"TopicController@store", "class"=>"form-inline"))!!}

@@ -7,6 +7,6 @@
     <title>Document</title>
 </head>
 <body>
-    <div>Lara</div>
+    <div>Представление сгенерировано методом index контроллера Test</div>
 </body>
 </html>
