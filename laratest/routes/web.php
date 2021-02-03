@@ -24,3 +24,5 @@ Route::get("test/index", [TestController::class, "index"]);
 Route::get("test/show", [TestController::class, "show"]);
 Route::resource('topic', TopicController::class);
 Route::resource("block", BlockController::class);
+// Route::resource('topic', 'TopicController');
+// Route::resource('block', 'BlockController');

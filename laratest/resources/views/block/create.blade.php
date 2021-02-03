@@ -7,7 +7,9 @@
         <div class="badge badge-info py-2" style="display: inline-block; width: 100%"> {{$page}}</div>
     </div>
     {{-- {!!Form::model($block, array("route"=>"block/create", "files"=>true, "class"=>"form"))!!} --}}
-    {!! Form::model($block, ["action"=>"BlockController@store", "files"=>true, "class"=>"form"]) !!}
+    {{-- {!! Form::model($block, ["action"=>"BlockController@store", "files"=>true, "class"=>"form"]) !!} --}}
+    {!! Form::model($block, ["block/store", "files"=>true, "class"=>"form"]) !!}
+
 
     <div class="row offset-1 py-3">
         {!!Form::label("topicid", "Выберите раздел:", ["class"=>"col-2"])!!}

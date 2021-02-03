@@ -29,6 +29,12 @@ class BlockController extends Controller
         $page="Добавление блока";
         $block = new Block;
         return view("block.create", ["block"=>$block, "topics"=>$topics, "page"=>$page]);
+
+
+        $topics = Topic::all();
+        $page="Главная";
+        $id=0;
+        return view("topic.index", ["topics"=>$topics, "page"=>$page, "id"=>$id]);
     }
 
     /**

@@ -21,7 +21,7 @@
                         @endif
                         <div>{{$block->content}}
                             <div class="float-right">
-                                {!!Form::open(array("route"=>array("block.destroy", $block->id), "metod"=>"DELETE"))!!}
+                                {!!Form::open(array("route"=>array("block.destroy", $block->id), "method"=>"DELETE"))!!}
                                 <button type="submit" class="btn btn-sm btn-danger">
                                     <img src="{{asset("img/trash.svg")}}">
                                 </button>

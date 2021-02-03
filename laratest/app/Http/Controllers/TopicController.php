@@ -32,8 +32,7 @@ class TopicController extends Controller
         $topic = new Topic;
         $page="Добавление раздела";
         //return view("topic.create", array("topic"=>$topic, "page"=>$page));
-        //return view("topic.create", ["topic"=>$topic, "page"=>$page]);
-        return view("topic.create", array("topic"=>$topic, "page"=>$page));
+        return view("topic.create", ["topic"=>$topic, "page"=>$page]);
     }
 
     /**
@@ -63,7 +62,6 @@ class TopicController extends Controller
             $message="Раздел успешно добавлен. Id = ". $topic->id;
             return redirect()->action("TopicController@create")->with("message", $message);
         }
-
     }
 
     /**
