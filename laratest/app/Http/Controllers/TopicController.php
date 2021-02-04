@@ -55,12 +55,12 @@ class TopicController extends Controller
         if(!$topic->save())
         {
             $err=$topic->getError();
-            return redirect()->action("TopicController@create")->with("errors", $err)->withInput();
+            return redirect()->route("topic.create")->with("errors", $err)->withInput();
         }
         else
         {
             $message="Раздел успешно добавлен. Id = ". $topic->id;
-            return redirect()->action("TopicController@create")->with("message", $message);
+            return redirect()->route("topic.create")->with("message", $message);
         }
     }
 

@@ -22,7 +22,7 @@
 @endif
 <div class="row">
     {{-- {!! Form::model($topic, array("action"=>"TopicController@store", "class"=>"form-inline")) !!} --}}
-    {!! Form::model($topic, ["topic/store", "class"=>"form-inline"]) !!}
+    {!! Form::model($topic, ["route"=>"topic.store", "class"=>"form-inline"]) !!}
     <div class="form-group offset-1">
     {!! Form::label("topicname", "Название раздела:", ["class"=>"col-4"]) !!}
     {!! Form::text("topicname", "", ["class"=>"form-control col-5"]) !!}

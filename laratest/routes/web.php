@@ -26,3 +26,7 @@ Route::resource('topic', TopicController::class);
 Route::resource("block", BlockController::class);
 // Route::resource('topic', 'TopicController');
 // Route::resource('block', 'BlockController');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

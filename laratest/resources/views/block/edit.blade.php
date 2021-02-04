@@ -22,7 +22,7 @@
     </div>
     <div class="row offset-1 mt-3">
         {!!Form::label("imagePath", "Выберите файл:", ["class"=>"col-2"])!!}
-        {!!Form::file("imagePath", "", ["class"=>"form-control col-4", "accept="=>"image/*"])!!}
+        {!!Form::file("imagePath", ["class"=>"form-control col-4", "accept"=>"image/*"])!!}
         {!!Form::submit("Добавить блок", ["class"=>"btn btn-sm btn-success col-2 offset-1"])!!}
     </div>
     {!!Form::close()!!}
