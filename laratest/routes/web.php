@@ -5,6 +5,8 @@ use App\Http\Controllers\TestController;
 use App\Http\Controllers\TopicController;
 use App\Http\Controllers\BlockController;
 use App\Http\Controllers\HomeController;
+use Illuminate\Support\Facades\Auth;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -28,9 +30,9 @@ Route::resource("block", BlockController::class);
 // Route::resource('topic', 'TopicController');
 // Route::resource('block', 'BlockController');
 
-// Auth::routes();
+Auth::routes();
 
-// Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::post('home/showuser', [HomeController::class, 'ShowUser']);
 Route::get('home/registration', [HomeController::class, 'Registration']);

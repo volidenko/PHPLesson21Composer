@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Block;
 use App\Models\Topic;
 
@@ -25,17 +26,14 @@ class BlockController extends Controller
      */
     public function create()
     {
-        //
+        if (!Auth::check())
+        {
+            return redirect('login');
+        }
         $topics = Topic::all()->pluck("topicname", "id");
         $page = "Добавление блока";
         $block = new Block;
         return view("block.create", ["block" => $block, "topics" => $topics, "page" => $page]);
-
-
-        $topics = Topic::all();
-        $page = "Главная";
-        $id = 0;
-        return view("topic.index", ["topics" => $topics, "page" => $page, "id" => $id]);
     }
 
     /**
@@ -80,6 +78,10 @@ class BlockController extends Controller
      */
     public function edit($id)
     {
+        if (!Auth::check())
+        {
+            return redirect('login');
+        }
         $block = Block::find($id);
         $page = "Редактирование блока";
         $topics = Topic::pluck("topicname", "id");
@@ -95,6 +97,10 @@ class BlockController extends Controller
      */
     public function update(Request $request, $id)
     {
+        if (!Auth::check())
+        {
+            return redirect('login');
+        }
         $block = Block::find($id);
         $block->topicid = $request->topicid;
         $block->title = $request->title;
@@ -120,6 +126,10 @@ class BlockController extends Controller
      */
     public function destroy($id)
     {
+        if (!Auth::check())
+        {
+            return redirect('login');
+        }
         $block = Block::find($id);
         $block->delete();
         return redirect("topic");

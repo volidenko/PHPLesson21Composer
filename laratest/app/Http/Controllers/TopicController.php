@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
 use App\Models\Topic;
 use App\Models\Block;
 use Illuminate\Http\Request;
@@ -28,7 +28,10 @@ class TopicController extends Controller
      */
     public function create()
     {
-        //
+        if (!Auth::check())
+        {
+            return redirect('login');
+        }
         $topic = new Topic;
         $page="Добавление раздела";
         //return view("topic.create", array("topic"=>$topic, "page"=>$page));

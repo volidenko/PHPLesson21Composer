@@ -36,13 +36,12 @@
                 <a class="navbar – brand" href="{{url('/') }}"> {{ config('app.name', 'Laravel') }} </a>
                 {{-- </div> --}}
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    {{-- Left Side Of Navbar --}}
                     <div class="navbar-nav">
                         <a href="{{ url("topic") }}" class="{{ $page == "Главная" ? "nav-link active" : "nav-link" }}">Главная</a>
                         <a href="{{ url("block/create") }}" class="{{ $page == "Добавление блока" ? "nav-link active" : "nav-link" }}">Добавление блока</a>
                         <a href="{{ url("topic/create") }}" class="{{ $page == "Добавление раздела" ? "nav-link active" : "nav-link" }}">Добавление разделов</a>
                     </div>
-                </div>
-
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
