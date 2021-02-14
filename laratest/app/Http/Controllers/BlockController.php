@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 use App\Models\Block;
 use App\Models\Topic;
@@ -25,16 +26,16 @@ class BlockController extends Controller
     public function create()
     {
         //
-        $topics = Topic::all()->pluck("topicname","id");
-        $page="Добавление блока";
+        $topics = Topic::all()->pluck("topicname", "id");
+        $page = "Добавление блока";
         $block = new Block;
-        return view("block.create", ["block"=>$block, "topics"=>$topics, "page"=>$page]);
+        return view("block.create", ["block" => $block, "topics" => $topics, "page" => $page]);
 
 
         $topics = Topic::all();
-        $page="Главная";
-        $id=0;
-        return view("topic.index", ["topics"=>$topics, "page"=>$page, "id"=>$id]);
+        $page = "Главная";
+        $id = 0;
+        return view("topic.index", ["topics" => $topics, "page" => $page, "id" => $id]);
     }
 
     /**
@@ -46,16 +47,15 @@ class BlockController extends Controller
     public function store(Request $request)
     {
         $block = new Block;
-        $block->topicid=$request->topicid;
-        $block->title=$request->title;
-        $block->content=$request->content;
-        $file=$request->file("imagePath");
-        if($file!=null)
-        {
-            $originalName=$request->file("imagePath")->getClientOriginalName();
-            $dirname="images/";
-            $file->move($dirname,$originalName);
-            $block->imagePath=$dirname.$originalName;
+        $block->topicid = $request->topicid;
+        $block->title = $request->title;
+        $block->content = $request->content;
+        $file = $request->file("imagePath");
+        if ($file != null) {
+            $originalName = $request->file("imagePath")->getClientOriginalName();
+            $dirname = "images/";
+            $file->move($dirname, $originalName);
+            $block->imagePath = $dirname . $originalName;
         }
         $block->save();
         return redirect("topic");
@@ -80,10 +80,10 @@ class BlockController extends Controller
      */
     public function edit($id)
     {
-        $block=Block::find($id);
-        $page="Добавление блока";
-        $topics = Topic::pluck("topicname","id");
-        return view("block.edit", ["block"=>$block, "topics"=>$topics, "page"=>$page]);
+        $block = Block::find($id);
+        $page = "Редактирование блока";
+        $topics = Topic::pluck("topicname", "id");
+        return view("block.edit", ["block" => $block, "topics" => $topics, "page" => $page]);
     }
 
     /**
@@ -95,21 +95,18 @@ class BlockController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $block=Block::find($id);
-        $block->topicid=$request->topicid;
-        $block->title=$request->title;
-        $block->content=$request->content;
-        $file=$request->file("imagePath");
-        if($file!=null)
-        {
-            $originalName=$request->file("imagePath")->getClientOriginalName();
-            $dirname="images/";
-            $file->move($dirname,$originalName);
-            $block->imagePath=$dirname.$originalName;
-        }
-        else
-        {
-            $block->imagePath="";
+        $block = Block::find($id);
+        $block->topicid = $request->topicid;
+        $block->title = $request->title;
+        $block->content = $request->content;
+        $file = $request->file("imagePath");
+        if ($file != null) {
+            $originalName = $request->file("imagePath")->getClientOriginalName();
+            $dirname = "images/";
+            $file->move($dirname, $originalName);
+            $block->imagePath = $dirname . $originalName;
+        } else {
+            $block->imagePath = "";
         }
         $block->update();
         return redirect("topic");

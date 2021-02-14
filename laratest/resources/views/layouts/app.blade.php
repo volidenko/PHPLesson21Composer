@@ -17,7 +17,10 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{asset('css/app.css')}}" rel="stylesheet">
+    <link href="{{asset('css/style.css')}}" rel="stylesheet">
+    <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{asset('css/bootstrap – theme.min.css')}}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
@@ -29,12 +32,16 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-
-                    </ul>
+                <!-- Branding Image -->
+                <a class="navbar – brand" href="{{url('/') }}"> {{ config('app.name', 'Laravel') }} </a>
+                {{-- </div> --}}
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a href="{{ url("topic") }}" class="{{ $page == "Главная" ? "nav-link active" : "nav-link" }}">Главная</a>
+                        <a href="{{ url("block/create") }}" class="{{ $page == "Добавление блока" ? "nav-link active" : "nav-link" }}">Добавление блока</a>
+                        <a href="{{ url("topic/create") }}" class="{{ $page == "Добавление раздела" ? "nav-link active" : "nav-link" }}">Добавление разделов</a>
+                    </div>
+                </div>
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -45,7 +52,7 @@
                                     <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                                 </li>
                             @endif
-                            
+
                             @if (Route::has('register'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
