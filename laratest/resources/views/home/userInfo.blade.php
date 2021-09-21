@@ -1,4 +1,4 @@
-@extends('layouts.layout')
+@extends('layouts.app')
 @section('content')
 <div class="col-4 mx-auto mt-5">
     <h3>Login: {{$login}}</h3>

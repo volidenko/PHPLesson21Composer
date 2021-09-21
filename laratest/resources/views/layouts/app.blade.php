@@ -24,7 +24,8 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        {{-- <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm"> --}}
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
@@ -38,9 +39,10 @@
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     {{-- Left Side Of Navbar --}}
                     <div class="navbar-nav">
-                        <a href="{{ url("topic") }}" class="{{ $page == "Главная" ? "nav-link active" : "nav-link" }}">Главная</a>
-                        <a href="{{ url("block/create") }}" class="{{ $page == "Добавление блока" ? "nav-link active" : "nav-link" }}">Добавление блока</a>
-                        <a href="{{ url("topic/create") }}" class="{{ $page == "Добавление раздела" ? "nav-link active" : "nav-link" }}">Добавление разделов</a>
+                        <a href="{{url('topic')}}" class="nav-link">Главная</a>
+                        {{-- <a href="{{ url("topic") }}" class="{{ $page == "Главная" ? "nav-link active" : "nav-link" }}">Главная</a> --}}
+                        <a href="{{ url("block/create") }}" class="nav-link">Добавление блока</a>
+                        <a href="{{ url("topic/create") }}" class="nav-link">Добавление разделов</a>
                     </div>
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">

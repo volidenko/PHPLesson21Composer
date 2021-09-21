@@ -5,7 +5,7 @@ use App\Http\Controllers\TestController;
 use App\Http\Controllers\TopicController;
 use App\Http\Controllers\BlockController;
 use App\Http\Controllers\HomeController;
-use Illuminate\Support\Facades\Auth;
+// use Illuminate\Support\Facades\Auth;
 
 
 /*

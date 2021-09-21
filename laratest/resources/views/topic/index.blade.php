@@ -11,7 +11,7 @@
     <div class="col-9 float-right">
         @if ($id!=0)
             @foreach ($blocks as $block)
-                <div class="row">
+                <div class="row" style="margin-right: 20px">
                     <div>
                         <h3>{{$block->title}}</h3>
                         @if ($block->imagePath!="")
@@ -20,7 +20,7 @@
                             </a>
                         @endif
                         <div>{{$block->content}}
-                            <div class="float-right">
+                            <div class="float-right" style="margin-right: 20px">
                                 {!!Form::open(array("route"=>array("block.destroy", $block->id), "method"=>"DELETE"))!!}
                                 <button type="submit" class="btn btn-sm btn-danger">
                                     <img src="{{asset("img/trash.svg")}}">

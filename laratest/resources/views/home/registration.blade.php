@@ -1,4 +1,4 @@
-@extends('layouts.layout')
+@extends('layouts.app')
 @section('content')
 @if (isset($error))
 <h3 class="mt-5" style="color: red">{{$error}}</h3>
